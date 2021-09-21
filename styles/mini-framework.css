@@ -1,0 +1,130 @@
+h1, h2, h3, h4 {
+    letter-spacing: 2px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+a {
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+button {
+    position: relative;
+    z-index: 1;
+}
+
+button:hover::after {
+    opacity: 0.04;
+}
+
+@media (hover: hover) {
+    button:active::after {
+        opacity: 0.12;
+    }
+}
+
+button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0 0 0);
+    z-index: -1;
+    opacity: 0;
+}
+
+ 
+
+.m-0 {
+    margin: 0;
+}
+
+.mb-8 {
+    margin-bottom: 8px;
+}
+
+.circle, .circle::after {
+    border-radius: 50%;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    max-width: 1400px;
+    padding: 0 16px;
+    margin: auto;
+}
+
+.line-height-0 {
+    line-height: 0;
+}
+
+.hide-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+
+.hide-scroll {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.typo-headline1 {
+    font-size: 96px;
+}
+
+.typo-headline2 {
+    font-size: 60px;
+}
+
+.typo-headline3 {
+    font-size: 48px;
+}
+
+.typo-headline4 {
+    font-size: 34px;
+}
+
+.typo-headline5 {
+    font-size: 24px;
+}
+
+.typo-headline6 {
+    font-size: 20px;
+}
+
+.typo-body1 {
+    font-size: 16px;
+}
+
+.typo-body2 {
+    font-size: 14px;
+}
+
+.typo-subtitle1 {
+    font-size: 16px;
+}
+
+.typo-subtitle2 {
+    font-size: 14px;
+}
+
+.typo-button {
+    font-size: 14px;
+}
+
+.typo-overline {
+    font-size: 10px;
+}
+
+.typo-caption {
+    font-size: 12px;
+}

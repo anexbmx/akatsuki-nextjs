@@ -1,0 +1,1 @@
+export const slug = (val = "", sep = "_") => val.replace(/ /g, sep);

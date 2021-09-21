@@ -1,0 +1,88 @@
+
+.members {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 612px) {
+    .members {
+        justify-content: space-between;
+    }
+}
+
+
+.card {
+    position: relative;
+    height: 200px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    padding: 36px 8px 20px;
+    border-radius: 10px;
+    margin: 20px;
+    z-index: 1;
+}
+
+
+.card::after {
+    content: "";
+    position: absolute;
+    height: calc(100% - 20px);
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.68) 100%);
+    border-radius: inherit;
+    z-index: -1;
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.25);
+}
+.card__bg {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    height: calc(100% - 20px);
+    width: 100%;
+    z-index: -1;
+    border-radius: inherit;
+}
+
+.card__village {
+    filter: invert(1);
+}
+.card__img {
+    position: absolute;
+    right: -105px;
+    bottom: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+ }
+
+.card__name {
+    margin-top: auto;
+    color: #fff;
+    
+ }
+
+.card__name_jp {
+    opacity: 0.2;
+    font-size: 36px;
+}
+
+.card__name_en {
+    font-weight: normal;
+    margin: 0;
+}
+
+
+.sasori, .hidan, .kisame, .kakuzu {
+    right: -60px;
+}
+ .kakuzu {
+    right: -75px;
+}
+.orochimaru, .jugo , .shin, .kabuto{
+    right: -90px;
+}

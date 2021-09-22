@@ -9,6 +9,7 @@ class MyDocument extends Document {
                         href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap&text=Akatsuki%20Unofficial%20Members"
                         rel="stylesheet"
                     /> */}
+                     <link rel="icon" href="/favicon.ico" />
                 </Head>
                 <body>
                     <Main />

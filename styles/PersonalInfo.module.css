@@ -1,0 +1,66 @@
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 280px;
+    margin-top: 90px;
+}
+
+.info {
+    width: 140px;
+    margin-bottom: 30px;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+}
+
+@media (min-width: 700px) {
+    .container {
+        max-width: 550px;
+    }
+    .info {
+        width: 180px;
+     }
+}
+.title {
+    margin: 0;
+    color: rgb(255 255 255 / 67%);
+    text-transform: uppercase;
+}
+
+.icon {
+    filter: invert(1);
+    margin-right: 5px;
+}
+.value {
+    margin: 0;
+    color: #fff;
+    letter-spacing: 0;
+    display: inline-block;
+}
+
+.japonaise {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    font-size: 50px;
+    color: rgb(255 255 255 / 30%);
+    white-space: nowrap;
+}
+
+.profilePicture {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 400px;
+    z-index: 0;
+}
+
+@media (min-width: 600px) {
+    .profilePicture {
+        height: 600px;
+        top: -60px;
+    }
+}

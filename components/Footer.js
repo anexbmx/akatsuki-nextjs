@@ -7,7 +7,7 @@ export default function Footer() {
                 <Image src="/img/yahiko-bg.png" height="261" width="341" />
             </div>
             <footer className={styles.footer}>
-                <p className={styles.p}>
+                <p className={`${styles.p} typo-body2`}>
                     Made With <span className={styles.heart}>♥️</span> in
                     Germany
                 </p>

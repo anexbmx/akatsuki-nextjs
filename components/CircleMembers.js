@@ -4,17 +4,25 @@ import styles from "../styles/CircleMembers.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { slug } from "../utils/utils";
+import Loader from "./Loader";
 
 const Circle = ({ item }) => {
     let { name, pictureName, village, color } = item;
 
     const villageSymbol = `/img/villages/Anti_${village}.svg`;
     const avatar = `/img/members/${pictureName}_avatar.png`;
-    const profile = `/members?name=${slug(name, "-")}`;
+    const pathname = `/members/${slug(name, "-")}`;
     const background = `linear-gradient(180deg, ${color} 0%, transparent 100%)`;
 
     return (
-        <Link href={profile}>
+        <Link
+            href={{
+                pathname,
+                query: {
+                    hex: color,
+                },
+            }}
+        >
             <a>
                 <article className={styles.member}>
                     <div
@@ -43,11 +51,15 @@ export default function CircleMembers({ memberType = "LEADERS" }) {
 
     return (
         <section>
-            <h2>{memberType === "LEADERS" ? "Leader" : "Unofficial Members"}</h2>
+            <h2>
+                {memberType === "LEADERS" ? "Leaders" : "Unofficial Members"}
+            </h2>
             <div className={`${styles.members} hide-scroll`}>
-                {status === "fetched"
-                    ? data.map((item) => <Circle key={item._id} item={item} />)
-                    : "loading..."}
+                {status === "fetched" ? (
+                    data.map((item) => <Circle key={item._id} item={item} />)
+                ) : (
+                    <Loader />
+                )}
             </div>
         </section>
     );

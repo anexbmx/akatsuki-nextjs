@@ -2,6 +2,7 @@ import useFetch from "../hooks/useFetch";
 import API_ENDPOINT from "../utils/API_ENDPOINT";
 import styles from "../styles/Villages.module.css";
 import Image from "next/image";
+import Loader from "./Loader";
 
 const Village = ({ name }) => {
     const avatar = `/img/villages/${name}.svg`;
@@ -20,13 +21,14 @@ export default function Villages() {
 
     return (
         <section>
+            
             <h2 className="mb-8">Villages</h2>
             <div className={`${styles.villages} hide-scroll`}>
                 {status === "fetched"
                     ? data.map(({ name, _id }) => (
                           <Village key={_id} name={name} />
                       ))
-                    : "loading..."}
+                    : <Loader />}
             </div>
         </section>
     );

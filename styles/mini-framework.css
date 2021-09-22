@@ -10,18 +10,19 @@ a {
 button {
     position: relative;
     z-index: 1;
+    user-select: none;
 }
 
-button:hover::after {
-    opacity: 0.04;
-}
 
 @media (hover: hover) {
-    button:active::after {
-        opacity: 0.12;
+    button:hover::after {
+        opacity: 0.04;
     }
 }
 
+button:active::after {
+    opacity: 0.12;
+}
 button::after {
     content: "";
     position: absolute;
@@ -53,7 +54,7 @@ img {
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 1200px;
     padding: 0 16px;
     margin: auto;
 }
@@ -128,3 +129,7 @@ img {
 .typo-caption {
     font-size: 12px;
 }
+
+.p-relative {
+    position: relative;
+  }

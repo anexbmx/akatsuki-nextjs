@@ -4,31 +4,35 @@ import styles from "../styles/CardMembers.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { slug } from "../utils/utils";
+import Loader from "./Loader";
 
 const Card = ({ item }) => {
     let { name, pictureName, japonaiseName, village, color } = item;
 
     const villageSymbol = `/img/villages/Anti_${village}.svg`;
     const picture = `/img/members/${pictureName}_profile.png`;
-    const profile = `/members?name=${slug(name, "-")}`;
+    const pathname = `/members/${slug(name, "-")}`;
     const background = color;
 
     return (
-        <Link href={profile}>
+        <Link 
+            href={{
+                pathname,
+                 query: {
+                    hex: color,
+                },
+            }}  
+        >
             <a>
                 <article className={styles.card}>
                     <div
                         className={styles.card__bg}
                         style={{ background }}
                     ></div>
-                    {/* <img
-                     className={styles.card__img}
-                           height="300"
-                            objectFit="contain"
-                            src={picture}
-                            alt=""
-                        /> */}
-                    <div className={styles.card__img + " " + styles[pictureName]}>
+
+                    <div
+                        className={`${styles.card__img}   ${styles[pictureName]}`}
+                    >
                         <Image
                             layout="fill"
                             objectFit="contain"
@@ -63,9 +67,11 @@ export default function CardMembers() {
         <section>
             <h2>All Members</h2>
             <div className={`${styles.members} hide-scroll`}>
-                {status === "fetched"
-                    ? data.map((item) => <Card key={item._id} item={item} />)
-                    : "loading..."}
+                {status === "fetched" ? (
+                    data.map((item) => <Card key={item._id} item={item} />)
+                ) : (
+                    <Loader />
+                )}
             </div>
         </section>
     );

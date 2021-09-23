@@ -40,7 +40,7 @@ const FirstAppear = ({ data }) => {
     return Object.keys(data).map((key) => {
         const [title, hash] = data[key].split("#");
         return (
-            <p>
+            <p key={key}>
                 ({key}) {title} <b>#{hash}</b>
             </p>
         );

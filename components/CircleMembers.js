@@ -1,19 +1,18 @@
 import useFetch from "../hooks/useFetch";
 import API_ENDPOINT from "../utils/API_ENDPOINT";
 import styles from "../styles/CircleMembers.module.css";
-import Image from "next/image";
 import Link from "next/link";
 import { slug } from "../utils/utils";
 import Loader from "./Loader";
+import CircleAvatar from "./CircleAvatar";
+import * as VILLAGES_ICONS from "../svgs/villagesIcon";
 
-const Circle = ({ item }) => {
+const CircleItem = ({ item }) => {
     let { name, pictureName, village, color } = item;
 
-    const villageSymbol = `/img/villages/Anti_${village}.svg`;
-    const avatar = `/img/members/${pictureName}_avatar.png`;
+   
     const pathname = `/members/${slug(name, "-")}`;
-    const background = `linear-gradient(180deg, ${color} 0%, transparent 100%)`;
-
+    const VillageIcon = VILLAGES_ICONS[village];
     return (
         <Link
             href={{
@@ -25,21 +24,16 @@ const Circle = ({ item }) => {
         >
             <a>
                 <article className={styles.member}>
-                    <div
-                        style={{ background }}
-                        className={styles.members__avatar}
-                    >
-                        <Image width="60" height="60" src={avatar} alt={name} />
-                    </div>
+                    <CircleAvatar
+                        background={color}
+                        name={name}
+                        avatar={pictureName}
+                    />
+
                     <h3 className={`${styles.members__name} typo-caption`}>
                         {name}
                     </h3>
-                    <Image
-                        width="40"
-                        height="14"
-                        src={villageSymbol}
-                        alt={name}
-                    />
+                    <VillageIcon color="#333" anti size="40" />
                 </article>
             </a>
         </Link>
@@ -55,11 +49,11 @@ export default function CircleMembers({ memberType = "LEADERS" }) {
                 {memberType === "LEADERS" ? "Leaders" : "Unofficial Members"}
             </h2>
             <div className={`${styles.members} hide-scroll`}>
-                {status === "fetched" ? (
-                    data.map((item) => <Circle key={item._id} item={item} />)
-                ) : (
-                    <Loader />
-                )}
+                <Loader status={status}>
+                    {data.map((item) => (
+                        <CircleItem key={item._id} item={item} />
+                    ))}
+                </Loader>
             </div>
         </section>
     );

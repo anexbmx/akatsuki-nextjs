@@ -9,12 +9,11 @@
 .info {
     width: 140px;
     margin-bottom: 30px;
+    display: flex;
+    align-items: flex-start;
 }
 
-.heading {
-    display: flex;
-    align-items: center;
-}
+ 
 
 @media (min-width: 700px) {
     .container {
@@ -25,21 +24,19 @@
      }
 }
 .title {
-    margin: 0;
+  
     color: rgb(255 255 255 / 67%);
     text-transform: uppercase;
 }
 
 .icon {
-    filter: invert(1);
-    margin-right: 5px;
-}
+    margin-right: 8px;
+ }
 .value {
     margin: 0;
     color: #fff;
-    letter-spacing: 0;
-    display: inline-block;
-}
+     line-height: 0.7;
+ }
 
 .japonaise {
     position: fixed;

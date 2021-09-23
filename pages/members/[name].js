@@ -3,6 +3,7 @@ import Head from "next/head";
 import Header from "../../components/Header";
 import Loader from "../../components/Loader";
 import PersonalInfo from "../../components/PersonalInfo";
+import PersonalInfoDetail from "../../components/PersonalInfoDetail";
 import useFetch from "../../hooks/useFetch";
 import API_ENDPOINT from "../../utils/API_ENDPOINT";
 
@@ -18,7 +19,7 @@ export default function Member() {
     const { name, hex: backgroundColor } = router.query;
     const { data, status } = useFetch(API_ENDPOINT.MEMBER(name));
 
-    console.log(data)
+    console.log(data);
     return (
         <>
             <HeadTag />
@@ -28,11 +29,10 @@ export default function Member() {
                 className="member-page-background"
             ></div>
             <div className="container p-relative">
-                {status === "fetched" ? (
+                <Loader status={status}>
                     <PersonalInfo data={data} />
-                ) : (
-                    <Loader />
-                )}
+                    <PersonalInfoDetail  data={data} />
+                </Loader>
             </div>
         </>
     );

@@ -1,47 +1,48 @@
+import { Aquarius, Aries, Capricorn, Gemini, Leo, Libara, Pisces, Scorpio, Taurus, Unknown, Virgo } from "../svgs/BirthdateIcon";
+
 export const slug = (val = "", sep = "_") => val.replace(/ /g, sep);
 
 const months = {
-    January: 1,
-    February: 2,
-    March: 3,
-    April: 4,
-    May: 5,
-    June: 6,
-    July: 7,
-    August: 8,
-    September: 9,
-    October: 10,
-    November: 11,
-    December: 12,
+    "Jan.": 1,
+    "Feb.": 2,
+    "Mar.": 3,
+    "Apr.": 4,
+    "May": 5,
+    "Jun.": 6,
+    "Jul.": 7,
+    "Aug.": 8,
+    "Sep.": 9,
+    "Oct.": 10,
+    "Nov.": 11,
+    "Dec.": 12,
 };
 
 export const getBirthDateSymbol = (strDate) => {
-    if(strDate === "Unknown") return "/img/birthdate/Unknown.svg";
+    if(strDate === "Unknown") return Unknown;
     let [month, day] = strDate.split(" ");
     month = months[month];
-    const path = "/img/birthdate/";
-    if ((month == 1 && day <= 20) || (month == 12 && day >= 22))
-        return `${path}Capricorn.svg`;
+     if ((month == 1 && day <= 20) || (month == 12 && day >= 22))
+        return Capricorn;
     if ((month == 1 && day >= 21) || (month == 2 && day <= 18))
-        return `${path}Aquarius.svg`;
+        return Aquarius;
     if ((month == 2 && day >= 19) || (month == 3 && day <= 20))
-        return `${path}Pisces.svg`;
+        return Pisces;
     if ((month == 3 && day >= 21) || (month == 4 && day <= 20))
-        return `${path}Aries.svg`;
+        return Aries;
     if ((month == 4 && day >= 21) || (month == 5 && day <= 20))
-        return `${path}Taurus.svg`;
+        return Taurus;
     if ((month == 5 && day >= 21) || (month == 6 && day <= 20))
-        return `${path}Gemini.svg`;
+        return Gemini;
     if ((month == 6 && day >= 22) || (month == 7 && day <= 22))
-        return `${path}Cancer.svg`;
+        return `Cancer.svg`;
     if ((month == 7 && day >= 23) || (month == 8 && day <= 23))
-        return `${path}Leo.svg`;
+        return Leo;
     if ((month == 8 && day >= 24) || (month == 9 && day <= 23))
-        return `${path}Virgo.svg`;
+        return Virgo;
     if ((month == 9 && day >= 24) || (month == 10 && day <= 23))
-        return `${path}Libra.svg`;
+        return Libara;
     if ((month == 10 && day >= 24) || (month == 11 && day <= 22))
-        return `${path}Scorpio.svg`;
+        return Scorpio;
     if ((month == 11 && day >= 23) || (month == 12 && day <= 21))
-        return `${path}sagittarius.svg`;
+        return `sagittarius.svg`;
 };

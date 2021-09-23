@@ -51,14 +51,7 @@
 .card__village {
     filter: invert(1);
 }
-.card__img {
-    position: absolute;
-    right: -105px;
-    bottom: 0;
-    z-index: 1;
-    height: 100%;
-    width: 100%;
- }
+
 
 .card__name {
     margin-top: auto;
@@ -77,7 +70,16 @@
 }
 
 
-.sasori, .hidan, .kisame, .kakuzu {
+/* 
+.card__img {
+    position: absolute;
+    right: -105px;
+    bottom: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+ }
+ .sasori, .hidan, .kisame, .kakuzu {
     right: -60px;
 }
  .kakuzu {
@@ -85,4 +87,4 @@
 }
 .orochimaru, .jugo , .shin, .kabuto{
     right: -90px;
-}
+} */

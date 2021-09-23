@@ -5,23 +5,24 @@ import Image from "next/image";
 import Link from "next/link";
 import { slug } from "../utils/utils";
 import Loader from "./Loader";
+import  * as VILLAGES_ICONS  from "../svgs/villagesIcon";
 
 const Card = ({ item }) => {
     let { name, pictureName, japonaiseName, village, color } = item;
 
-    const villageSymbol = `/img/villages/Anti_${village}.svg`;
     const picture = `/img/members/${pictureName}_profile.png`;
     const pathname = `/members/${slug(name, "-")}`;
     const background = color;
+    const VillageIcon = VILLAGES_ICONS[village];
 
     return (
-        <Link 
+        <Link
             href={{
                 pathname,
-                 query: {
+                query: {
                     hex: color,
                 },
-            }}  
+            }}
         >
             <a>
                 <article className={styles.card}>
@@ -40,14 +41,8 @@ const Card = ({ item }) => {
                             alt=""
                         />
                     </div>
-                    <Image
-                        className={styles.card__village}
-                        layout="fixed"
-                        width="74"
-                        height="29"
-                        src={villageSymbol}
-                        alt=""
-                    />
+                     
+                    {<VillageIcon anti size={74} color="#fff" />}
                     <div className={styles.card__name}>
                         <span className={styles.card__name_jp}>
                             {japonaiseName}
@@ -67,11 +62,11 @@ export default function CardMembers() {
         <section>
             <h2>All Members</h2>
             <div className={`${styles.members} hide-scroll`}>
-                {status === "fetched" ? (
-                    data.map((item) => <Card key={item._id} item={item} />)
-                ) : (
-                    <Loader />
-                )}
+                <Loader status={status} >
+                    {data.map((item) => (
+                        <Card key={item._id} item={item} />
+                    ))}
+                </Loader>
             </div>
         </section>
     );

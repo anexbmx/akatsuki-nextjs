@@ -1,9 +1,11 @@
 import styles from "../styles/PersonalInfoDetail.module.css";
 import ClansIcon from "../svgs/ClansIcon";
+import { LinkIcon } from "../svgs/icons";
 import villagesIcon from "../svgs/villagesIcon";
 import Chips from "./Chips";
 import CircleAvatar from "./CircleAvatar";
 import FAB from "./FAB";
+import List from "./List";
 import ListImages from "./ListImages";
 
 const Background = () => (
@@ -37,15 +39,60 @@ const Background = () => (
 );
 
 const FirstAppear = ({ data }) => {
-    return Object.keys(data).map((key) => {
-        const [title, hash] = data[key].split("#");
-        return (
-            <p key={key}>
-                ({key}) {title} <b>#{hash}</b>
-            </p>
-        );
+    const list = Object.keys(data).map((key) => {
+        let [title, hash] = data[key].split("#");
+        let img, secondaryText;
+        if (title.includes("Chapter")) {
+            title = "Manga";
+            img = "manga_logo.svg";
+            secondaryText = `Chapter #${hash}`;
+        } else if (title.includes("Shipp")) {
+            title = "Naruto Shippūden";
+            img = "naruto_shippuden_logo.svg";
+            secondaryText = `Episode #${hash}`;
+        } else {
+            title = "Naruto";
+            img = "naruto_logo.svg";
+            secondaryText = `Episode #${hash}`;
+        }
+
+        return { title, secondaryText, img };
     });
+    return <List list={list} imgSize={70} direction="column" />;
 };
+
+const Affiliations = ({ affiliations }) => (
+    <Chips
+        items={affiliations.map((title) => ({
+            title,
+            Icon: villagesIcon[title],
+        }))}
+    />
+);
+
+const Links = ({ items, baseUrl }) => (
+    <ul className="d-flex flex-wrap list-style-none p-0">
+        {items.map((item, index) => (
+            <li className="m-8 typo-button" key={index}>
+                <a href={`${baseUrl}${item}`}>
+                    <LinkIcon className="mr-8" size={12} />
+                    {item}
+                </a>
+            </li>
+        ))}
+    </ul>
+);
+
+const LiElement = ({ title, value, children }) => (
+    <li className={styles.listInfo__Item}>
+        <h3 className={`${styles.listInfo__title} typo-body`}>{title}</h3>
+
+        <div className={styles.listInfo__content}>
+            {value ? <p>{value}</p> : children}  
+        </div>
+    </li>
+);
+
 export default function PersonalInfoDetail({ data }) {
     const {
         status,
@@ -72,97 +119,62 @@ export default function PersonalInfoDetail({ data }) {
             <FAB shape="rect" top={-20} left={101}>
                 <ClanIcon size={24} />
             </FAB>
+
+            <p className={styles.summary}>{summary}</p>
+
             <ul className={styles.listInfo}>
-                <li className={styles.listInfo__Item}>
-                    <p className={styles.listInfo__paragraphe}>{summary}</p>
-                </li>
-                <li className={styles.listInfo__Item}>
-                    <h3 className={`${styles.listInfo__title} typo-body`}>
-                        Status
-                    </h3>
-                    <p className={styles.listInfo__paragraphe}>{status}</p>
-                </li>
-
-                <li className={styles.listInfo__Item}>
-                    <h3 className={`${styles.listInfo__title} typo-body`}>
-                        First Appear
-                    </h3>
+                <LiElement title="Status" value={status} />
+                <LiElement title="First Appear">
                     <FirstAppear data={firstAppear} />
-                </li>
-
+                </LiElement>
                 {occupations.length > 0 && (
-                    <li className={styles.listInfo__Item}>
-                        <h3 className={`${styles.listInfo__title} typo-body`}>
-                            Occupations
-                        </h3>
+                    <LiElement title="Occupations">
                         {occupations.map((item, index) => (
-                            <p
-                                key={index}
-                                className={styles.listInfo__paragraphe}
-                            >
-                                {item}
-                            </p>
+                            <p key={index}>{item}</p>
                         ))}
-                    </li>
+                    </LiElement>
                 )}
                 {classifications.length > 0 && (
-                    <li className={styles.listInfo__Item}>
-                        <h3 className={`${styles.listInfo__title} typo-body`}>
-                            Classifications
-                        </h3>
-                        {classifications.map((item, index) => (
-                            <p
-                                key={index}
-                                className={styles.listInfo__paragraphe}
-                            >
-                                {item}
-                            </p>
-                        ))}
-                    </li>
+                    <LiElement title="Classifications">
+                        <Links
+                            baseUrl="https://naruto.fandom.com/wiki/"
+                            items={classifications}
+                        />
+                    </LiElement>
+                )}
+            </ul>
+            <ul className={styles.listInfo}>
+                <LiElement title="Affiliations">
+                    <Affiliations affiliations={affiliations} />
+                </LiElement>
+                {partners.length > 0 && (
+                    <LiElement title="Partners">
+                        <div className="d-flex flex-wrap">
+                            {partners.map(
+                                ({ name, pictureName, color }, index) => (
+                                    <CircleAvatar
+                                        key={index}
+                                        name={name}
+                                        avatar={pictureName}
+                                        background={color}
+                                        hideName
+                                        size={60}
+                                    />
+                                )
+                            )}
+                        </div>
+                    </LiElement>
                 )}
 
-                <li className={styles.listInfo__Item}>
-                    <h3 className={`${styles.listInfo__title} typo-body`}>
-                        Affiliations
-                    </h3>
-                    <Chips
-                        items={affiliations.map((title) => ({
-                            title,
-                            Icon: villagesIcon[title],
-                        }))}
-                    />
-                </li>
-                {partners.length > 0 && <li className={styles.listInfo__Item}>
-                    <h3 className={`${styles.listInfo__title} typo-body`}>
-                        Partners
-                    </h3>
-                    <div className="d-flex flex-wrap">
-                        {partners.map(({ name, pictureName, color }, index) => (
-                            <CircleAvatar
-                                key={index}
-                                name={name}
-                                avatar={pictureName}
-                                background={color}
-                                size={60}
-                            />
-                        ))}
-                    </div>
-                </li>}
                 {genkais.length > 0 && (
-                    <li className={styles.listInfo__Item}>
-                        <h3 className={`${styles.listInfo__title} typo-body`}>
-                            Genkei / Kekkei
-                        </h3>
+                    <LiElement title="Genkei / Kekkei">
                         <ListImages folder="genkais" items={genkais} />
-                    </li>
+                    </LiElement>
                 )}
                 {natures.length > 0 && (
-                    <li className={styles.listInfo__Item}>
-                        <h3 className={`${styles.listInfo__title} typo-body`}>
-                            Nature
-                        </h3>
+                    <LiElement title="Natures">
                         <ListImages folder="natures" items={natures} />
-                    </li>
+                    </LiElement>
                 )}
             </ul>
         </div>

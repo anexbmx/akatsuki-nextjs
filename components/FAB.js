@@ -9,11 +9,14 @@ export default function FAB({
     bottom = 0,
     children,
     bgColor = "",
+    className,
+    ...props
 }) {
     return (
         <button
             style={{ position, top, left, right, bottom }}
-            className={`${styles.button} ${styles[bgColor]} ${styles[shape]}`}
+            className={`${styles.button} ${styles[bgColor]} ${styles[shape]} ${className}`}
+            {...props}
         >
             <span className={styles.icon}>{children}</span>
         </button>

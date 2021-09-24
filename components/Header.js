@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-export default function Header() {
+export default function Header({title = "暁 Akatsuki"}) {
     return (
         <header className="header">
             <Link href="/">
@@ -15,7 +15,7 @@ export default function Header() {
                 </a>
             </Link>
 
-            <h1 className="typo-headline6 main-heading">暁 Akatsuki</h1>
+            <h1 className="typo-headline6 main-heading">{title}</h1>
         </header>
     );
 }

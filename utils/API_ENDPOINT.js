@@ -9,6 +9,6 @@ export default class API_ENDPOINT {
 
     static MEMBER(name) {
         if (!name) return "";
-        return `${BASE_URL}members/${slug(name, "-")}`;
+        return `${BASE_URL}members/${encodeURIComponent(slug(name, "-"))}`;
     }
 }

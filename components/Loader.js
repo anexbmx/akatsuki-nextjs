@@ -1,6 +1,6 @@
 import styles from "../styles/Loader.module.css";
 
-const SharinganIcon = ({ size }) => (
+export const SharinganIcon = ({ size }) => (
     <svg
         className={styles.sharingan}
         width={size}
@@ -79,7 +79,7 @@ const SharinganIcon = ({ size }) => (
 );
 
 export default function Loader({ size = 30, children, status }) {
-    if (status === "fetching")
+    if (status === "fetching" || status === "idle")
         return (
             <div className={styles.loader}>
                 <SharinganIcon size={size} />
@@ -87,5 +87,6 @@ export default function Loader({ size = 30, children, status }) {
             </div>
         );
     else if (status === "fetched") return children;
-    else return <p>Something Wrong! Please try again later :)</p>;
+    else if (status === "error")
+        return <p>Something Wrong! Please try again later :)</p>;
 }

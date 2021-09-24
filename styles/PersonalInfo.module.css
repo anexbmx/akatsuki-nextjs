@@ -4,6 +4,8 @@
     flex-wrap: wrap;
     max-width: 280px;
     margin-top: 90px;
+    position: sticky;
+    top: 100px;
 }
 
 .info {

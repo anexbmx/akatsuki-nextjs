@@ -1,21 +1,39 @@
-.loader {
-    min-height: 47px;
-    width: 100%;
+.loader, .loaderPage {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
+
+.loader {
+    min-height: 47px;
+    width: 100%;
+}
+
+.loaderPage {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0 0 0 / 60%);
+    
+    color: #fff;
+}
+
 .sharingan {
     vertical-align: middle;
     margin-right: 12px;
     will-change: transform;
-    animation: spinner 900ms ease-in-out   alternate infinite;
+    animation: spinner 900ms ease-in-out alternate infinite;
 }
+
 .text {
     margin: 0;
 }
+
 @keyframes spinner {
-  
     100% {
         transform: rotate(1turn) scale(1.5);
     }

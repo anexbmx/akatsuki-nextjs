@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    min-height: 100%;
+    text-align: center;
+    background-color: #D5E2C5;
+}
+.div {
+    padding: 16px;
+    background: #fff;
+    border-radius: 9px;
+    transform: translateY(-72px);
+    box-shadow: 0 0 20px rgb(0 0 0 / 10%);
+}
+.heading {
+    margin: 0;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+ }

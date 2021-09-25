@@ -1,16 +1,13 @@
-import useFetch from "../hooks/useFetch";
-import API_ENDPOINT from "../utils/API_ENDPOINT";
 import styles from "../styles/CardMembers.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { slug } from "../utils/utils";
-import Loader from "./Loader";
 import * as VILLAGES_ICONS from "../svgs/villagesIcon";
 
 const Card = ({ item }) => {
     let { name, pictureName, japonaiseName, village, color } = item;
 
-    const picture = `/img/members/${pictureName}_profile.png`;
+    const picture = `/img/members_sm/${pictureName}_profile.png`;
     const pathname = `/members/${slug(name, "-")}`;
     const background = color;
     const VillageIcon = VILLAGES_ICONS[village];
@@ -24,14 +21,14 @@ const Card = ({ item }) => {
                         style={{ background }}
                     ></div>
 
-                   
+                    <div className={styles.card__img}>
                         <Image
                             layout="fill"
                             objectFit="contain"
                             src={picture}
                             alt=""
                         />
-                    
+                    </div>
 
                     {<VillageIcon anti size={74} color="#fff" />}
                     <div className={styles.card__name}>

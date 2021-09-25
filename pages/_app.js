@@ -1,7 +1,6 @@
 import "../styles/globals.css";
 import "../styles/mini-framework.css";
 import Router from "next/router";
-import Loader from "../components/Loader";
 import { useEffect, useState } from "react";
 import LoaderPage from "../components/LoaderPage";
 

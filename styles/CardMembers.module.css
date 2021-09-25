@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    overflow: hidden;
 }
 
 @media (min-width: 612px) {
@@ -69,22 +70,16 @@
     margin: 0;
 }
 
-
-/* 
+ 
+  
 .card__img {
     position: absolute;
-    right: -105px;
+    right: -60px;
     bottom: 0;
     z-index: 1;
     height: 100%;
     width: 100%;
+     
  }
- .sasori, .hidan, .kisame, .kakuzu {
-    right: -60px;
-}
- .kakuzu {
-    right: -75px;
-}
-.orochimaru, .jugo , .shin, .kabuto{
-    right: -90px;
-} */
+ 
+ 

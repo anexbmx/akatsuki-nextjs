@@ -1,7 +1,6 @@
-import useFetch from "../hooks/useFetch";
-import API_ENDPOINT from "../utils/API_ENDPOINT";
+
 import styles from "../styles/Villages.module.css";
-import Loader from "./Loader";
+
 import * as VILLAGES_ICONS from "../svgs/villagesIcon";
 
 const Village = ({ name }) => {

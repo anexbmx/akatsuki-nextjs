@@ -1,11 +1,38 @@
-
 .container {
     display: flex;
     flex-wrap: wrap;
-    max-width: 280px;
-    margin-top: 90px;
+    margin-top: 100px;
     position: sticky;
     top: 100px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.container__info {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 290px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.container__info::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient( 90deg, rgba(0, 0, 0, 0.87) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: -1;
+    opacity: 1;
+}
+
+.container__img {
+    position: absolute;
+    top: -60px;
+    right: 0;
+    z-index: -1;
 }
 
 .info {
@@ -15,36 +42,27 @@
     align-items: flex-start;
 }
 
- 
-
-@media (min-width: 700px) {
-    .container {
-        max-width: 550px;
-    }
-    .info {
-        width: 180px;
-     }
-}
 .title {
-  
     color: rgb(255 255 255 / 67%);
     text-transform: uppercase;
 }
 
 .icon {
     margin-right: 8px;
- }
+}
+
 .value {
     margin: 0;
     color: #fff;
-     line-height: 0.7;
- }
+    line-height: 0.7;
+}
 
 .japonaise {
-    position: fixed;
-    top: 60px;
-    right: 20px;
-    font-size: 50px;
+    position: absolute;
+    top: -60px;
+    left: 0;
+    
+    font-size: 60px;
     color: rgb(255 255 255 / 30%);
     white-space: nowrap;
 }
@@ -61,5 +79,15 @@
     .profilePicture {
         height: 600px;
         top: -60px;
+    }
+
+
+}
+
+ 
+@media (min-width: 630px) {
+    .container__info {
+        max-width: 420px;
+        margin-bottom: 77px;
     }
 }

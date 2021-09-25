@@ -2,7 +2,7 @@ import styles from "../styles/PersonalInfo.module.css";
 import { getBirthDateSymbol } from "../utils/utils";
 import ClansIcon from "../svgs/ClansIcon";
 import Icons from "../svgs/icons";
-
+import Image from "next/image";
 const Info = ({ title = "title", value = "..." }) => {
     let Icon;
     if (title === "Village") {
@@ -46,19 +46,33 @@ export default function PersonalInfo({ data }) {
     } = data;
     return (
         <>
-            <h2 className={styles.japonaise}>{japonaiseName}</h2>
-            {/* <Image src={`/img/members/${pictureName}_profile.png`} layout="fill" objectFit="contain" /> */}
+            
+
             <img className={styles.profilePicture} />
             <div className={styles.container}>
-                <Info title="Sex" value={sex} />
-                <Info title="Age" value={age} />
-                <Info title="Birthdate" value={birthdate} />
-                <Info title="Blood" value={bloodType} />
-                <Info title="Weight" value={weight} />
-                <Info title="Height" value={height} />
-                <Info title="Member Type" value={memberType} />
-                <Info title="Clan" value={clan} />
-                <Info title="Village" value={village} />
+                
+            <div className={styles.container__img}>
+            <h2 className={styles.japonaise}>{japonaiseName}</h2>
+                    <Image
+                        src={`/img/members_optimized/${pictureName}_profile.png`}
+                        height="360"
+                        width="279"
+                        objectFit="contain"
+                        quality={100}
+                    />
+                </div>
+                <div className={styles.container__info}>
+                    <Info title="Sex" value={sex} />
+                    <Info title="Age" value={age} />
+                    <Info title="Birthdate" value={birthdate} />
+                    <Info title="Blood" value={bloodType} />
+                    <Info title="Weight" value={weight} />
+                    <Info title="Height" value={height} />
+                    <Info title="Member Type" value={memberType} />
+                    <Info title="Clan" value={clan} />
+                    <Info title="Village" value={village} />
+                </div>
+                
             </div>
         </>
     );

@@ -26,6 +26,7 @@ const Card = ({ item }) => {
                             layout="fill"
                             objectFit="contain"
                             src={picture}
+                            quality={100}
                             alt=""
                         />
                     </div>

@@ -6,7 +6,7 @@ export default function Chips ({items = []}) {
         {
             items.map(({Icon, title}, index) => <li key={index} className={styles.item}>
                 <div className={styles.icon}>
-                    <Icon size={32} />
+                    <Icon size={16} height={16} />
                 </div>
                 <span className="typo-caption2">{title}</span>
             </li>)

@@ -33,5 +33,9 @@
     overflow: hidden;
     width: 70px;
     font-weight: normal;
-    margin: 5px 0 -5px;
+    margin: 4px auto;
+}
+
+.icon {
+    margin-top: 12px;
 }

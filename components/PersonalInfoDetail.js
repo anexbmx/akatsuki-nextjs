@@ -1,7 +1,7 @@
 import styles from "../styles/PersonalInfoDetail.module.css";
 import ClansIcon from "../svgs/ClansIcon";
 import { LinkIcon } from "../svgs/icons";
-import villagesIcon from "../svgs/villagesIcon";
+import villagesIcon from "../svgs/villagesIcon-v2";
 import Chips from "./Chips";
 import CircleAvatar from "./CircleAvatar";
 import FAB from "./FAB";
@@ -108,13 +108,13 @@ export default function PersonalInfoDetail({ data }) {
         clan,
     } = data;
 
-    const VillageIcon = villagesIcon[village];
+    const VillageIcon = villagesIcon[`Anti${village}`];
     const ClanIcon = ClansIcon[clan];
     return (
         <div className={styles.container}>
             <Background />
             <FAB bgColor="primary" shape="circle" top={-26} left={21}>
-                <VillageIcon anti size={45} color="#fff" />
+                <VillageIcon  size={45} color="#fff" />
             </FAB>
             <FAB shape="rect" top={-20} left={101}>
                 <ClanIcon size={24} />

@@ -2,7 +2,7 @@ import styles from "../styles/CardMembers.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { slug } from "../utils/utils";
-import * as VILLAGES_ICONS from "../svgs/villagesIcon";
+import * as VILLAGES_ICONS from "../svgs/villagesIcon-v2";
 
 const Card = ({ item }) => {
     let { name, pictureName, japonaiseName, village, color } = item;
@@ -10,7 +10,7 @@ const Card = ({ item }) => {
     const picture = `/img/members_sm/${pictureName}_profile.png`;
     const pathname = `/members/${slug(name, "-")}`;
     const background = color;
-    const VillageIcon = VILLAGES_ICONS[village];
+    const VillageIcon = VILLAGES_ICONS[`Anti${village}`];
 
     return (
         <Link href={pathname}>
@@ -23,15 +23,17 @@ const Card = ({ item }) => {
 
                     <div className={styles.card__img}>
                         <Image
-                            layout="fill"
+                            height={194}
+                            width={250}
                             objectFit="contain"
                             src={picture}
                             quality={100}
                             alt=""
+                            
                         />
                     </div>
 
-                    {<VillageIcon anti size={74} color="#fff" />}
+                    {<VillageIcon size={60} color="#fff" />}
                     <div className={styles.card__name}>
                         <span className={styles.card__name_jp}>
                             {japonaiseName}

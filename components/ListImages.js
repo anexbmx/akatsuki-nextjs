@@ -14,7 +14,7 @@ export default function ListImages({ items, folder }) {
                         height="35"
                         width="35"
                         src={`${path}${slug(item)}.svg`}
-                        alt={`${path}${slug(item)}.svg`}
+                        alt=""
                     />
                 </div>
             ))}

@@ -11,6 +11,7 @@ const Li = ({ item, imgSize }) => {
                     height={imgSize}
                     width={imgSize}
                     src={`/img/${img}`}
+                    alt=""
                 />
             </div>
             <div>

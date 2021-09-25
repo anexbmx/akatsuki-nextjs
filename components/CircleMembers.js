@@ -1,17 +1,17 @@
 
 import styles from "../styles/CircleMembers.module.css";
 import CircleAvatar from "./CircleAvatar";
-import * as VILLAGES_ICONS from "../svgs/villagesIcon";
+import * as VILLAGES_ICONS from "../svgs/villagesIcon-v2";
 
 const CircleItem = ({ item }) => {
     let { name, pictureName, village, color } = item;
 
-    const VillageIcon = VILLAGES_ICONS[village];
+    const VillageIcon = VILLAGES_ICONS[`Anti${village}`];
     return (
         <article className={styles.member}>
             <CircleAvatar background={color} name={name} avatar={pictureName} />
 
-            <VillageIcon color="#333" anti size="40" />
+            <VillageIcon   color="#333"  size={35} />
         </article>
     );
 };

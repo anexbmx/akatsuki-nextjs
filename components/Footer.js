@@ -4,7 +4,7 @@ export default function Footer() {
     return (
         <>
             <div className={styles.bg}>
-                <Image src="/img/yahiko-bg.png" height="261" width="341" />
+                <Image src="/img/yahiko-bg.png" height="261" width="341" alt="" />
             </div>
             <footer className={styles.footer}>
                 <p className={`${styles.p} typo-body2`}>

@@ -21,8 +21,7 @@
     display: inline-block;
     vertical-align: middle;
     margin-right: 8px;
+    padding: 4px;
 }
 
-.icon > * {
-    transform: translate(-4px, -4px);
-}
+ 

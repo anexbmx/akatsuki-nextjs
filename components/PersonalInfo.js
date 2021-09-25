@@ -46,20 +46,20 @@ export default function PersonalInfo({ data }) {
     } = data;
     return (
         <>
-            
-
             <img className={styles.profilePicture} />
             <div className={styles.container}>
-                
-            <div className={styles.container__img}>
-            <h2 className={styles.japonaise}>{japonaiseName}</h2>
-                    <Image
-                        src={`/img/members_optimized/${pictureName}_profile.png`}
-                        height="360"
-                        width="279"
-                        objectFit="contain"
-                        quality={100}
-                    />
+                <div className={styles.container__imgWrapper}>
+                    <h2 className={styles.japonaise}>{japonaiseName}</h2>
+                    <div className={styles.container__img}>
+                        <Image
+                            src={`/img/members_optimized/${pictureName}_profile.png`}
+                            height="360"
+                            width="279"
+                            objectFit="contain"
+                            quality={100}
+                            alt={name}
+                        />
+                    </div>
                 </div>
                 <div className={styles.container__info}>
                     <Info title="Sex" value={sex} />
@@ -72,7 +72,6 @@ export default function PersonalInfo({ data }) {
                     <Info title="Clan" value={clan} />
                     <Info title="Village" value={village} />
                 </div>
-                
             </div>
         </>
     );

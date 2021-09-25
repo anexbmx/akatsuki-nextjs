@@ -1,14 +1,14 @@
 
 import styles from "../styles/Villages.module.css";
 
-import * as VILLAGES_ICONS from "../svgs/villagesIcon";
+import * as VILLAGES_ICONS from "../svgs/villagesIcon-v2";
 
 const Village = ({ name }) => {
     const VillageIcon = VILLAGES_ICONS[name];
     return (
         <div className={styles.villages__item}>
-            <button className={`${styles.villages__button} circle`}>
-                <VillageIcon size={60} />
+            <button aria-label={name} className={`${styles.villages__button} circle`}>
+                <VillageIcon size={30} height={25} />
             </button>
             <h3 className={`${styles.villages__title} typo-caption`}>{name}</h3>
         </div>

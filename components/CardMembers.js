@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { slug } from "../utils/utils";
 import Loader from "./Loader";
-import  * as VILLAGES_ICONS  from "../svgs/villagesIcon";
+import * as VILLAGES_ICONS from "../svgs/villagesIcon";
 
 const Card = ({ item }) => {
     let { name, pictureName, japonaiseName, village, color } = item;
@@ -16,14 +16,7 @@ const Card = ({ item }) => {
     const VillageIcon = VILLAGES_ICONS[village];
 
     return (
-        <Link
-            href={{
-                pathname,
-                query: {
-                    hex: color,
-                },
-            }}
-        >
+        <Link href={pathname}>
             <a>
                 <article className={styles.card}>
                     <div
@@ -31,17 +24,15 @@ const Card = ({ item }) => {
                         style={{ background }}
                     ></div>
 
-                    <div
-                        className={`${styles.card__img}   ${styles[pictureName]}`}
-                    >
+                   
                         <Image
                             layout="fill"
                             objectFit="contain"
                             src={picture}
                             alt=""
                         />
-                    </div>
-                     
+                    
+
                     {<VillageIcon anti size={74} color="#fff" />}
                     <div className={styles.card__name}>
                         <span className={styles.card__name_jp}>
@@ -55,18 +46,14 @@ const Card = ({ item }) => {
     );
 };
 
-export default function CardMembers() {
-    const { data, status } = useFetch(API_ENDPOINT.MEMBERS);
-
+export default function CardMembers({ members }) {
     return (
         <section>
             <h2>All Members</h2>
             <div className={`${styles.members} hide-scroll`}>
-                <Loader status={status} >
-                    {data.map((item) => (
-                        <Card key={item._id} item={item} />
-                    ))}
-                </Loader>
+                {members.map((item) => (
+                    <Card key={item._id} item={item} />
+                ))}
             </div>
         </section>
     );

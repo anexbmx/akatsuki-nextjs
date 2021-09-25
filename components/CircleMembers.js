@@ -18,8 +18,8 @@ const CircleItem = ({ item }) => {
     );
 };
 
-export default function CircleMembers({ memberType = "LEADERS" }) {
-    const { data, status } = useFetch(API_ENDPOINT[memberType]);
+export default function CircleMembers({ members, memberType = "LEADERS" }) {
+    
 
     return (
         <section>
@@ -27,11 +27,11 @@ export default function CircleMembers({ memberType = "LEADERS" }) {
                 {memberType === "LEADERS" ? "Leaders" : "Unofficial Members"}
             </h2>
             <div className={`${styles.members} hide-scroll`}>
-                <Loader status={status}>
-                    {data.map((item) => (
+                
+                    {members.map((item) => (
                         <CircleItem key={item._id} item={item} />
                     ))}
-                </Loader>
+                
             </div>
         </section>
     );

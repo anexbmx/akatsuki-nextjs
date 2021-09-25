@@ -16,15 +16,8 @@ export default function CircleAvatar({
     avatar = `/img/members/${avatar}_avatar.png`;
 
     return (
-        <Link
-            href={{
-                pathname,
-                query: {
-                    hex: background,
-                },
-            }}
-        >
-            <a style={{textAlign: "center"}}>
+        <Link href={pathname}>
+            <a style={{ textAlign: "center" }}>
                 <div
                     {...props}
                     style={{

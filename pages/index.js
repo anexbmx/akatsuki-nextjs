@@ -5,7 +5,8 @@ import CircleMembers from "../components/CircleMembers";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Villages from "../components/Villages";
- 
+import API_ENDPOINT from "../utils/API_ENDPOINT";
+import { fetchData } from "../utils/utils";
 
 const HeadTag = () => (
     <Head>
@@ -14,18 +15,41 @@ const HeadTag = () => (
     </Head>
 );
 
-export default function Home() {
+export default function Home({ data }) {
+    console.log(data);
+    const { villages, leaders, allMembers, unofficialMembers } = data;
     return (
         <>
             <HeadTag />
             <Header />
 
             <div className="container">
-                <Villages />
-                <CircleMembers memberType="UNOFFICIAL" />
-                <CardMembers />
+                <Villages villages={villages} />
+                <CircleMembers members={leaders} memberType="LEADERS" />
+                <CircleMembers
+                    members={unofficialMembers}
+                    memberType="UNOFFICIAL"
+                />
+                <CardMembers members={allMembers} />
             </div>
             <Footer />
         </>
     );
+}
+
+export async function getStaticProps(context) {
+    try {
+        const villages = await fetchData(API_ENDPOINT.VILLAGES);
+        const leaders = await fetchData(API_ENDPOINT.LEADERS);
+        const unofficialMembers = await fetchData(API_ENDPOINT.UNOFFICIAL);
+        const allMembers = await fetchData(API_ENDPOINT.MEMBERS);
+
+        return {
+            props: {
+                data: { villages, leaders, unofficialMembers, allMembers },
+            },
+        };
+    } catch (error) {
+        return { props: { error: true } };
+    }
 }

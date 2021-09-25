@@ -7,9 +7,10 @@ export default function NotFoundMember() {
         <div className={styles.container}>
             <Image
                 className={styles.img}
-                height="305"
-                width="406"
+                height="405"
+                width="506"
                 src="/img/not-found.svg"
+                objectFit="contain"
             />
             <div className={styles.div}>
                 <h1  className={`${styles.heading} typo-headline5`}>You are Lost!</h1>

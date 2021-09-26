@@ -10,6 +10,8 @@ import { fetchData } from "../utils/utils";
 const HeadTag = () => (
     <Head>
         <title>Akatsuki</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+
         <meta
             name="description"
             content="Akatsuki is a criminal organization in the Naruto manga. This group was made up when it first appeared in the manga of nine deserting ninjas, from different countries scattered around the ninja world. It was founded by Yahiko, however, according to Itachi, the real founder of Akatsuki is Obito Uchiwa"
@@ -19,6 +21,8 @@ const HeadTag = () => (
 
 export default function Home({ data }) {
     const { villages, leaders, allMembers } = data;
+
+  
     return (
         <>
             <HeadTag />
@@ -37,7 +41,6 @@ export async function getStaticProps(context) {
     try {
         const villages = await fetchData(API_ENDPOINT.VILLAGES);
         const leaders = await fetchData(API_ENDPOINT.LEADERS);
-        // const unofficialMembers = await fetchData(API_ENDPOINT.UNOFFICIAL);
         const allMembers = await fetchData(API_ENDPOINT.MEMBERS);
 
         return {

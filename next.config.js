@@ -1,3 +1,11 @@
-module.exports = {
-  reactStrictMode: true,
-}
+const withPWA = require("next-pwa");
+
+const nextConfig = {
+    reactStrictMode: true,
+    pwa: {
+        dest: "public",
+         
+    },
+};
+
+module.exports = withPWA(nextConfig);

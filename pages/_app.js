@@ -25,9 +25,7 @@ function MyApp({ Component, pageProps }) {
     const loading = useRouterLoading();
     return (
         <>
-            <div className={loading ? "filterBlur" : ""}>
-                <Component {...pageProps} />
-            </div>
+            <Component {...pageProps} />
             {loading && <LoaderPage />}
         </>
     );

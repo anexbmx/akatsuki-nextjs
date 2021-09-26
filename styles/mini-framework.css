@@ -5,24 +5,39 @@ h1, h2, h3, h4 {
 a {
     text-decoration: none;
     color: #1a73e8;
+    -webkit-touch-callout: none;
 }
-button {
+
+.button {
+    display: flex;
+    min-height: 48px;
+    min-width: 48px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+button, .button {
     position: relative;
     z-index: 1;
     user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color:   rgb(0 0 0 / 4%);
 }
 
 
 @media (hover: hover) {
-    button:hover::after {
+    button:hover::after, 
+    .button:hover::after {
         opacity: 0.04;
     }
 }
 
-button:active::after {
+button:active::after,
+.button:active::after {
     opacity: 0.12;
 }
-button::after {
+button::after,
+.button::after {
     content: "";
     position: absolute;
     top: 0;

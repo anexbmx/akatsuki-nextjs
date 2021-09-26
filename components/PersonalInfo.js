@@ -46,7 +46,6 @@ export default function PersonalInfo({ data }) {
     } = data;
     return (
         <>
-            <img className={styles.profilePicture} />
             <div className={styles.container}>
                 <div className={styles.container__imgWrapper}>
                     <h2 className={styles.japonaise}>{japonaiseName}</h2>

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import CardMembers from "../components/CardMembers";
+ import CardMembers from "../components/CardMembers";
 import CircleMembers from "../components/CircleMembers";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -33,6 +33,7 @@ export default function Home({ data }) {
                 <CardMembers members={allMembers} />
             </div>
             <Footer />
+            
         </>
     );
 }

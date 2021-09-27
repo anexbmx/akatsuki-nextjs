@@ -31,7 +31,7 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    width: 70px;
+    width: 100%;
     font-weight: normal;
     margin: 4px auto;
 }

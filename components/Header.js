@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { ChevronLeft, Logo } from "../svgs/icons";
+import styles from '../styles/Header.module.css';
+
 export default function Header({ title = "暁 Akatsuki" }) {
     return (
-        <header className="header">
-            <div className="status-bar" />
-            <div className="header__content">
+        <header  className={styles.header}>
+            <div className={styles.header__content}>
                 <Link href="/">
                     {title === "暁 Akatsuki" ? (
                         <a>

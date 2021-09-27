@@ -17,7 +17,6 @@ class MyDocument extends Document {
                         content="default"
                     />
                     <link rel="manifest" href="manifest.json" />
-                    <link rel="preload" href="app.webmanifest" />
                     <link
                         rel="apple-touch-icon"
                         sizes="114x114"
@@ -40,11 +39,16 @@ class MyDocument extends Document {
                         href="img/icons/apple-icon-180x180.png"
                     />
                     <link rel="shortcut icon" href="/favicon.ico" />
-                    <script async src="https://unpkg.com/pwacompat" crossOrigin="anonymous"></script>
-
+                    <script
+                        async
+                        src="https://unpkg.com/pwacompat"
+                        crossOrigin="anonymous"
+                    ></script>
                 </Head>
                 <body>
-                    <Main />
+             
+                        <Main />
+                 
                     <NextScript />
                 </body>
             </Html>

@@ -5,7 +5,7 @@ import { slug } from "../utils/utils";
 
 export default function CircleAvatar({
     size = 70,
-    name,
+    name = "",
     avatar,
     background,
     hideName = false,
@@ -13,7 +13,7 @@ export default function CircleAvatar({
 }) {
     const pathname = `/members/${slug(name, "-")}`;
     const bgColor = `linear-gradient(180deg, ${background} 0%, transparent 100%)`;
-    avatar = `/img/members/${avatar}_avatar.png`;
+    avatar = `/img/members_sm/${avatar}_avatar.png`;
 
     return (
         <Link href={pathname}>

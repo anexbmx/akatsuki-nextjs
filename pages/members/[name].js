@@ -5,7 +5,7 @@ import NotFoundMember from "../../components/NotFoundMember";
 import PersonalInfo from "../../components/PersonalInfo";
 import PersonalInfoDetail from "../../components/PersonalInfoDetail";
 import API_ENDPOINT from "../../utils/API_ENDPOINT";
-import { fetchData } from "../../utils/utils";
+import { fetchData, slug } from "../../utils/utils";
 
 const HeadTag = ({ title, description, image }) => (
     <Head>

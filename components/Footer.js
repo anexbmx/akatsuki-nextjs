@@ -9,7 +9,7 @@ export default function Footer() {
             <footer className={styles.footer}>
                 <p className={`${styles.p} typo-body2`}>
                     Made With <span className={styles.heart}>♥️</span> in
-                    Germany
+                    Germany <br /> created by <a href="https://www.linkedin.com/in/anas-boumediene/">Anas Boumediene</a>
                 </p>
             </footer>
         </>

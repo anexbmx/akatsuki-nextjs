@@ -1,28 +1,26 @@
 import Head from "next/head";
- import CardMembers from "../components/CardMembers";
+import CardMembers from "../components/CardMembers";
 import CircleMembers from "../components/CircleMembers";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import MetaTag from "../components/MetaTag";
 import Villages from "../components/Villages";
 import API_ENDPOINT from "../utils/API_ENDPOINT";
 import { fetchData } from "../utils/utils";
 
 const HeadTag = () => (
     <Head>
-        <title>Akatsuki</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-
         <meta
-            name="description"
-            content="Akatsuki is a criminal organization in the Naruto manga. This group was made up when it first appeared in the manga of nine deserting ninjas, from different countries scattered around the ninja world. It was founded by Yahiko, however, according to Itachi, the real founder of Akatsuki is Obito Uchiwa"
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         />
+        <MetaTag />
     </Head>
 );
 
 export default function Home({ data }) {
     const { villages, leaders, allMembers } = data;
 
-  
     return (
         <>
             <HeadTag />
@@ -33,7 +31,6 @@ export default function Home({ data }) {
                 <CardMembers members={allMembers} />
             </div>
             <Footer />
-            
         </>
     );
 }

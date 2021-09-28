@@ -8,11 +8,11 @@ export default function Header({ title = "暁 Akatsuki" }) {
             <div className={styles.header__content}>
                 <Link href="/">
                     {title === "暁 Akatsuki" ? (
-                        <a>
+                        <a aria-label="Back Home">
                             <Logo width={48} />
                         </a>
                     ) : (
-                        <a className="button">
+                        <a aria-label="Back Home" className="button">
                             <ChevronLeft width={16} color="#fff" />
                         </a>
                     )}

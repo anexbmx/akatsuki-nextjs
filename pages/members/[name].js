@@ -9,6 +9,7 @@ import { fetchData, slug } from "../../utils/utils";
 
 const HeadTag = ({ title, description, image }) => (
     <Head>
+        <title>{title} | Akatsuki</title>
         <MetaTag
             title={`${title} | Akatsuki`}
             description={description}

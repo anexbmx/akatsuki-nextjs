@@ -10,6 +10,10 @@ class MyDocument extends Document {
                         rel="stylesheet"
                     /> */}
 
+                    <meta
+                        name="viewport"
+                        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+                    />
                     <meta name="theme-color" content="#973942" />
                     <meta name="google" content="notranslate" />
                     <meta
@@ -46,9 +50,8 @@ class MyDocument extends Document {
                     ></script>
                 </Head>
                 <body>
-             
-                        <Main />
-                 
+                    <Main />
+
                     <NextScript />
                 </body>
             </Html>

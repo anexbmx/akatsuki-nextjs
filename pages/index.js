@@ -10,10 +10,8 @@ import { fetchData } from "../utils/utils";
 
 const HeadTag = () => (
     <Head>
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-        />
+        
+        <title>Akatsuki</title>
         <MetaTag />
     </Head>
 );

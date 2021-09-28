@@ -25,7 +25,7 @@
 }
 
 .backgroundSvg__cutout2 {
-    transform: translate(89.5px, -1px);
+    transform: translate(89.5px, -1px) scale(1.3);
 }
 
 .summary {

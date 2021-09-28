@@ -116,7 +116,7 @@ export default function PersonalInfoDetail({ data }) {
             <FAB bgColor="primary" shape="circle" top={-26} left={21}>
                 <VillageIcon  size={45} color="#fff" />
             </FAB>
-            <FAB shape="rect" top={-20} left={101}>
+            <FAB shape="rect" top={-23} left={107}>
                 <ClanIcon size={24} />
             </FAB>
 

@@ -36,7 +36,7 @@ export default function BottomSheet({ village, isOpen, closeModal }) {
             }`}
         >
             <div className={`${styles.modal} hide-scroll`}>
-                <button className={styles.closeBtn}>
+                <button aria-label="close modal" className={styles.closeBtn}>
                     <ChevronLeft size={12} />
                 </button>
                 {village && (

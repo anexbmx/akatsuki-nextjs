@@ -14,6 +14,7 @@ const HeadTag = ({ title, description, image }) => (
             description={description}
             image={image}
             imageAlt={title}
+            url={`https://akatsuki.vercel.app/${slug(title, "-")}`}
         />
     </Head>
 );

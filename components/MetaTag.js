@@ -1,4 +1,3 @@
-import { slug } from "../utils/utils";
 
 export default function MetaTag({
     description = "Love Akatsuki organisation? Here, you can find all Akatsuki members information, Nagato, Obito Uchiha, Yahiko, Itachi Uchiha, Sasuke Uchiha ...",
@@ -8,10 +7,7 @@ export default function MetaTag({
     url = "https://akatsuki.vercel.app",
 }) {
     const pathImage = `https://akatsuki.vercel.app/${image}`;
-    url =
-        title === "Akatsuki"
-            ? url
-            : `https://akatsuki.vercel.app/${slug(title, "-")}`;
+    
     return (
         <>
             <title>{title}</title>

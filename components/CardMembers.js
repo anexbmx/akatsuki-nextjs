@@ -29,6 +29,7 @@ const Card = ({ item }) => {
                             src={picture}
                             quality={100}
                             alt=""
+                            priority={pictureName === "itachi"}
                             
                         />
                     </div>

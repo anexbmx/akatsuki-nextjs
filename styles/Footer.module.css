@@ -19,3 +19,7 @@
     transform: translateY(54px);
     z-index: -1;
 }
+
+.link {
+    color: #75C8FF;
+}

@@ -14,7 +14,7 @@ class MyDocument extends Document {
                         name="viewport"
                         content="width=device-width, initial-scale=1.0, viewport-fit=cover"
                     />
-                    <meta name="theme-color" content="#973942" />
+                    <meta name="theme-color" content="#2F303B" />
                     <meta name="google" content="notranslate" />
                     <meta
                         name="apple-mobile-web-app-status-bar-style"

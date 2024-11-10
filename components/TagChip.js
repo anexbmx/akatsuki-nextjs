@@ -1,7 +1,7 @@
-import styles from '../styles/Chip.module.css';
+import styles from '../styles/TagChip.module.css';
 
 
-export default function Chips ({items = []}) {
+export default function TagChip ({items = []}) {
     return <ul className={styles.list}>
         {
             items.map(({Icon, title}, index) => <li key={index} className={styles.item}>

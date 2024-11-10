@@ -1,6 +1,5 @@
-import styles from "../styles/Loader.module.css";
-
-export const SharinganIcon = ({ size }) => (
+import styles from '../styles/FullPageLoader.module.css';
+ const SharinganIcon = ({ size }) => (
     <svg
         className={styles.sharingan}
         width={size}
@@ -77,16 +76,11 @@ export const SharinganIcon = ({ size }) => (
         />
     </svg>
 );
-
-export default function Loader({ size = 30, children, status }) {
-    if (status === "fetching" || status === "idle")
-        return (
-            <div className={styles.loader}>
-                <SharinganIcon size={size} />
-                <span className={styles.text}>Loading...</span>
-            </div>
-        );
-    else if (status === "fetched") return children;
-    else if (status === "error")
-        return <p>Something Wrong! Please try again later :)</p>;
+export default function FullPageLoader({ size = 50 }) {
+	return (
+		<div className={styles.loaderPage}>
+			<SharinganIcon size={size} />
+			<p className={styles.text}>Loading...</p>
+		</div>
+	);
 }

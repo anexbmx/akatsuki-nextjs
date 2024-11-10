@@ -1,7 +1,7 @@
-import styles from "../styles/BottomSheet.module.css";
+import styles from "../styles/ModalBottomSheet.module.css";
 import Image from "next/image";
 import VILLAGE_ICONS from "../svgs/villagesIcon-v2";
-import CircleAvatar from "./CircleAvatar";
+import MemberAvatar from "./MemberAvatar";
 import { ChevronLeft } from "../svgs/icons";
 import Link from "next/link";
 
@@ -11,7 +11,7 @@ const Leaders = ({ leaders }) =>
             <h3 className="typo-body secondary-color">Leader(s)</h3>
             <div className="d-flex flex-wrap">
                 {leaders.map((leader) => (
-                    <CircleAvatar
+                    <MemberAvatar
                         key={leader.name}
                         size={50}
                         background={leader.color}
@@ -25,7 +25,7 @@ const Leaders = ({ leaders }) =>
         <></>
     );
 
-export default function BottomSheet({ village, isOpen, closeModal }) {
+export default function ModalBottomSheet({ village, isOpen, closeModal }) {
     const VillageIcon = VILLAGE_ICONS[village?.name];
 
     return (

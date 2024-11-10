@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import "../styles/mini-framework.css";
 import Router from "next/router";
 import { useEffect, useState } from "react";
-import LoaderPage from "../components/LoaderPage";
+import FullPageLoader from "../components/FullPageLoader";
 
 const useRouterLoading = () => {
     const [loading, setLoading] = useState(false);
@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }) {
     return (
         <>
             <Component {...pageProps} />
-            {loading && <LoaderPage />}
+            {loading && <FullPageLoader />}
         </>
     );
 }

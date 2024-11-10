@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "../styles/List.module.css";
 
-const Li = ({ item, imgSize }) => {
+const MemberItem = ({ item, imgSize }) => {
     const { img, title, secondaryText } = item;
     return (
         <li className={styles.list__item}>
@@ -22,13 +22,13 @@ const Li = ({ item, imgSize }) => {
     );
 };
 
-export default function List({ list, imgSize = 70, direction = "column" }) {
+export default function MembersList({ list, imgSize = 70, direction = "column" }) {
     return (
         <ul
             className={`${styles.list} list-style-none p-0 ${styles[direction]}`}
         >
             {list.map((item, index) => (
-                <Li key={index} item={item} imgSize={imgSize} />
+                <MemberItem key={index} item={item} imgSize={imgSize} />
             ))}
         </ul>
     );

@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import styles from "../styles/Villages.module.css";
 
 import * as VILLAGES_ICONS from "../svgs/villagesIcon-v2";
-import BottomSheet from "./BottomSheet";
+import ModalBottomSheet from "./ModalBottomSheet";
 
 const Village = ({ village, setVillage }) => {
     const VillageIcon = VILLAGES_ICONS[village.name];
@@ -50,7 +50,7 @@ export default function Villages({ villages }) {
                     ))}
                 </div>
             </section>
-            <BottomSheet
+            <ModalBottomSheet
                 isOpen={isOpen}
                 village={selectedVillage.current}
                 closeModal={closeModal}

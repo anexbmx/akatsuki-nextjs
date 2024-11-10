@@ -1,6 +1,6 @@
 import Head from "next/head";
-import CardMembers from "../components/CardMembers";
-import CircleMembers from "../components/CircleMembers";
+import MemberCard from "../components/MemberCard";
+import MembersCircleList from "../components/MembersCircleList";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import MetaTag from "../components/MetaTag";
@@ -10,14 +10,14 @@ import { fetchData } from "../utils/utils";
 
 const HeadTag = () => (
     <Head>
-        
+
         <title>Akatsuki</title>
         <MetaTag />
     </Head>
 );
 
-export default function Home({ data }) {
-    const { villages, leaders, allMembers } = data;
+export default function Home({ data  }) {
+    const { villages, leaders , allMembers } = data;
 
     return (
         <>
@@ -25,8 +25,8 @@ export default function Home({ data }) {
             <Header />
             <div className="container">
                 <Villages villages={villages} />
-                <CircleMembers members={leaders} memberType="LEADERS" />
-                <CardMembers members={allMembers} />
+                <MembersCircleList members={leaders} memberType="LEADERS" />
+                <MemberCard members={allMembers} />
             </div>
             <Footer />
         </>
@@ -42,6 +42,7 @@ export async function getStaticProps(context) {
         return {
             props: {
                 data: { villages, leaders, allMembers },
+                revalidate: 60 * 60 * 24,
             },
         };
     } catch (error) {

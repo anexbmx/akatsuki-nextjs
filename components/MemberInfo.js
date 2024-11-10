@@ -1,8 +1,9 @@
-import styles from "../styles/PersonalInfo.module.css";
+import styles from "../styles/MemberInfo.module.css";
 import { getBirthDateSymbol } from "../utils/utils";
 import ClansIcon from "../svgs/ClansIcon";
 import Icons from "../svgs/icons";
 import Image from "next/image";
+
 const Info = ({ title = "title", value = "..." }) => {
     let Icon;
     if (title === "Village") {
@@ -29,7 +30,7 @@ const Info = ({ title = "title", value = "..." }) => {
     );
 };
 
-export default function PersonalInfo({ data }) {
+export default function MemberInfo({ data }) {
     const {
         pictureName,
         japonaiseName,

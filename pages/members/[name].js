@@ -1,11 +1,12 @@
 import Head from "next/head";
 import Header from "../../components/Header";
 import MetaTag from "../../components/MetaTag";
-import NotFoundMember from "../../components/NotFoundMember";
-import PersonalInfo from "../../components/PersonalInfo";
-import PersonalInfoDetail from "../../components/PersonalInfoDetail";
+
 import API_ENDPOINT from "../../utils/API_ENDPOINT";
 import { fetchData, slug } from "../../utils/utils";
+import MemberNotFound from '../../components/MemberNotFound';
+import MemberInfo from '../../components/MemberInfo';
+import MemberDetails from '../../components/MemberDetails';
 
 const HeadTag = ({ title, description, image }) => (
     <Head>
@@ -21,7 +22,7 @@ const HeadTag = ({ title, description, image }) => (
 );
 
 function Member({ data }) {
-    if (!data) return <NotFoundMember />;
+    if (!data) return <MemberNotFound />;
     const { name, summary, pictureName, color: background } = data;
     return (
         <>
@@ -36,8 +37,8 @@ function Member({ data }) {
                 className="member-page-background"
             ></div>
             <div className="container p-relative">
-                <PersonalInfo data={data} />
-                <PersonalInfoDetail data={data} />
+                <MemberInfo data={data} />
+                <MemberDetails data={data} />
             </div>
         </>
     );

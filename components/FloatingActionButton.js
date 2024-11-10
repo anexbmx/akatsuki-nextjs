@@ -1,6 +1,6 @@
-import styles from "../styles/Fab.module.css";
+import styles from "../styles/FloatingActionButton.module.css";
 
-export default function FAB({
+export default function FloatingActionButton({
     shape = "circle",
     position = "absolute",
     top = 0,

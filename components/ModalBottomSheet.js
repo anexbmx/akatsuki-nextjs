@@ -43,6 +43,7 @@ export default function ModalBottomSheet({ village, isOpen, closeModal }) {
                     <>
                         <div className={styles.imgWrapper}>
                             <Image
+                            alt=''
                                 height={285}
                                 width={500}
                                 src={`/img/villages/${village.name}.png`}
